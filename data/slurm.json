@@ -1,0 +1,32 @@
+{
+  "slurmVersion": 1,
+  "validationOutputFilters": {
+    "prefixFilters": [
+          {
+            "prefix": "192.0.2.0/24",
+            "comment": "All VRPs encompassed by prefix"
+          },
+          {
+            "prefix": "194.32.71.0/24",
+            "comment": "All VRPs encompassed by prefix"
+          },
+          {
+            "prefix": "209.24.0.0/24",
+            "comment": "All VRPs encompassed by prefix"
+          },
+          {
+            "prefix": "209.24.12.0/24",
+            "comment": "All VRPs encompassed by prefix"
+          },
+          {
+            "prefix": "2001:7fb:fd04::/48",
+            "comment": "All VRPs encompassed by prefix"
+          }
+    ],
+    "bgpsecFilters": []
+  },
+  "locallyAddedAssertions": {
+    "prefixAssertions": [],
+    "bgpsecAssertions": []
+  }
+}
