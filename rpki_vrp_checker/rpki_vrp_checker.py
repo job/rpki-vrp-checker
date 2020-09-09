@@ -24,3 +24,28 @@
 # CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 # ARISING IN ANY WAY OUT OF  THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
+
+import sys
+
+
+def parse_args(args):
+    import argparse
+    parser = argparse.ArgumentParser(
+        description="Perform various test operations on a given set of RPKI\
+based VRPs")
+    parser.add_argument("-v", dest="verbose", action="store_true",
+                        help="Display verbose information about tests")
+    parser.add_argument("-i", dest="inputfile",
+                        help="Input JSON file containing to-be-checked VRPs")
+    parser.add_arguments("-V", dest="version", action="store_true",
+                         help="Display rpki-vrp-checker version")
+
+    return parser.parse_args(args)
+
+
+def main():
+
+    args = parse_args(sys.argv[1:])
+    if args.version: # pragma: no cover
+        print("rpki-vrp-checker %s" % rpki_vrp_checker.__version__)
+        sys.exit()
