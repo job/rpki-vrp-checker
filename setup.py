@@ -36,7 +36,7 @@ from os.path import abspath, dirname, join
 here = abspath(dirname(__file__))
 
 version = re.search('^__version__\s*=\s*"(.*)"',
-                    open('rpki-vrp-checker/__init__.py').read(),
+                    open('rpki_vrp_checker/__init__.py').read(),
                     re.M).group(1)
 
 with codecs.open(join(here, 'README.md'), encoding='utf-8') as f:
