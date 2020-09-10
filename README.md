@@ -21,7 +21,7 @@ Usage
 
 ```
 $ pip3 install rpki-vrp-checker
-$ rpki-vrp-checker -i ./export.json -o blessed-vrp-set.json
+$ rpki-vrp-checker -i ./export.json -c expected-vrps.json -s slurm.json -o blessed-vrp-set.json
 ```
 
 Purpose

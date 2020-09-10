@@ -35,10 +35,14 @@ def parse_args(args):
 based VRPs")
     parser.add_argument("-v", dest="verbose", action="store_true",
                         help="Display verbose information about tests")
-    parser.add_argument("-i", dest="inputfile",
+    parser.add_argument("-i", dest="inputpath",
                         help="Input JSON file containing to-be-checked VRPs")
-    parser.add_argument("-i", dest="blessed",
+    parser.add_argument("-b", dest="blessedpath",
                         help="Path to output the blessed JSON file checked VRPs")
+    parser.add_argument("-s", dest="slurmpath",
+                        help="Path to SLURM JSON file")
+    parser.add_argument("-c", dest="assertpath",
+                        help="Path to JSON file with expected ROA assertions")
     parser.add_arguments("-V", dest="version", action="store_true",
                          help="Display rpki-vrp-checker version")
 
