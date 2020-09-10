@@ -15,3 +15,11 @@ Features
 * Apply SLURM filters
 * Canary checking (assert whether expected ROAs are part of the VRP set)
 * ...
+
+Usage
+-----
+
+```
+$ pip3 install rpki-vrp-checker
+$ rpki-vrp-checker -i ./export.json -o blessed-vrp-set.json
+```
