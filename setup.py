@@ -25,55 +25,37 @@
 # ARISING IN ANY WAY OUT OF  THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 
-import codecs
-import os
-import re
-import sys
+from setuptools import setup
+from rpki_vrp_checker import __version__
 
-from setuptools import setup, find_packages
-from os.path import abspath, dirname, join
+with open('README.md', 'r') as fh:
+    long_description = fh.read()
 
-here = abspath(dirname(__file__))
-
-version = re.search('^__version__\s*=\s*"(.*)"',
-                    open('rpki_vrp_checker/__init__.py').read(),
-                    re.M).group(1)
-
-with codecs.open(join(here, 'README.md'), encoding='utf-8') as f:
-    README = f.read()
-
-if sys.argv[-1] == 'publish':
-    os.system('python3 setup.py sdist upload')
-    print("You probably want to also tag the version now:")
-    print("  git tag -a %s -m 'version %s'" % (version, version))
-    print("  git push --tags")
-    print("  git push")
-    sys.exit()
-
-
-setup(
+setuptools.setup(
     name='rpki-vrp-checker',
-    version=version,
-    maintainer="Job Snijders",
-    maintainer_email='job@ntt.net',
+    version=__version__,
+    author='Job Snijders',
+    author_email='job@ntt.net',
+    description='A simple utility to perform business logic tests on a '
+                'collection of RPKI-based VRPs.',
+    long_description=long_description,
     url='https://github.com/job/rpki-vrp-checker',
-    description='RPKI VRP Checker utility',
-    long_description=README,
-    license='BSD 2-Clause',
-    keywords='rpki prefix routing networking',
+    python_requires='>=3.8',
+    install_requires=[
+        'pyyaml',
+        'py-radix==0.10.0',
+    ],
+    license='BSD',
+    entry_points={
+        'console_scripts': [
+            'rpki-vrp-checker = rpki_vrp_checker.main:main',
+        ],
+    },
     classifiers=[
         'Intended Audience :: Developers',
-        'Topic :: Software Development :: Libraries :: Python Modules',
         'Topic :: System :: Networking',
         'License :: OSI Approved :: BSD License',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.8'
-    ],
-    setup_requires=["nose", "coverage", "mock"],
-    install_requires=["py-radix==0.10.0"],
-    packages=find_packages(exclude=['tests', 'tests.*']),
-    entry_points={'console_scripts':
-                  ['rpki-vrp-checker = rpki_vrp_checker.rpki_vrp_checker:main']},
-    data_files = [('man/man7', ['rpki-vrp-checker.7'])],
-    test_suite='nose.collector'
+        'Programming Language :: Python :: 3.8',
+        ],
 )
