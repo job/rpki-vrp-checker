@@ -37,6 +37,8 @@ based VRPs")
                         help="Display verbose information about tests")
     parser.add_argument("-i", dest="inputfile",
                         help="Input JSON file containing to-be-checked VRPs")
+    parser.add_argument("-i", dest="blessed",
+                        help="Path to output the blessed JSON file checked VRPs")
     parser.add_arguments("-V", dest="version", action="store_true",
                          help="Display rpki-vrp-checker version")
 
