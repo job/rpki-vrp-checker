@@ -21,7 +21,11 @@ Usage
 ```
 $ pip3 install rpki-vrp-checker
 $ rpki-vrp-checker -i data/to-be-considered-vrp-set.json -b /tmp/not_yet_implemented -c data/canaries.yaml
-The following RPKI VRPs have been registered at the RIR level, that were not added as canaries:
+ERROR: WRONG AT RIR LEVEL?
+--------------------------
+
+The following RPKI VRPs have been registered at the RIR level,
+but were not added as canaries:
 
 Entry #1:
   Prefix       : 204.2.255.0/25 (MaxLength: 25)
@@ -33,9 +37,8 @@ Entry #2:
   Origin AS    : 15562
   Trust Anchor : RIPE
 
-
----------------
-
+ERROR: MISSING VIPAR RPKI CANARY REGISTRATIONS?
+-----------------------------------------------
 
 The following canaries are not visible in RPKI data at the RIR level:
 
@@ -43,6 +46,7 @@ Entry #1:
   Prefix       : 2001:67c:208c::/48 (MaxLength: 48)
   Origin AS    : 15562
   Trust Anchor : ARIN
+
 $
 ```
 

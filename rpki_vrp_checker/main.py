@@ -123,19 +123,21 @@ def main():
     if verbose:
         print("loaded %s canaries" % len(canaries))
 
-    print("The following RPKI VRPs have been registered at the RIR level, "
-          "that were not added as canaries:\n")
+    print("ERROR: WRONG AT RIR LEVEL?")
+    print("--------------------------\n")
+    print("The following RPKI VRPs have been registered at the RIR level,\n"
+          "but were not added as canaries:\n")
     c = 0
     for vrp in roas_of_interest:
         if vrp not in canaries_of_interest:
             c += 1
             pretty_print(vrp, c)
 
-    print("\n---------------\n\n")
-
-    c = 0
+    print("ERROR: MISSING VIPAR RPKI CANARY REGISTRATIONS?")
+    print("-----------------------------------------------\n")
     print("The following canaries are not visible in "
           "RPKI data at the RIR level:\n")
+    c = 0
     for canarie in canaries_of_interest:
         if canarie not in roas_of_interest:
             c += 1
