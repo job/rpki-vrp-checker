@@ -31,7 +31,7 @@ from rpki_vrp_checker import __version__
 with open('README.md', 'r') as fh:
     long_description = fh.read()
 
-setuptools.setup(
+setup(
     name='rpki-vrp-checker',
     version=__version__,
     author='Job Snijders',
