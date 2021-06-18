@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# Copyright (C) 2021 Job Snijders <job@fastly.com>
 # Copyright (C) 2020 Job Snijders <job@ntt.net>
 #
 # This file is part of rpki-vrp-checker
@@ -87,10 +88,11 @@ def main():
     tree = radix.Radix()
 
     for r in roas['roas']:
-        asn = int(r['asn'][2:])
-        ta = r['ta']
-        ml = r['maxLength']
+        asn = r['asn']
+        expires = r['expires']
         prefix = r['prefix']
+        ml = r['maxLength']
+        ta = r['ta']
         rnode = tree.search_exact(prefix)
         pack = {'p': prefix, 'ta': ta, 'ml': ml, 'asn': asn}
 
