@@ -1,4 +1,3 @@
-[![Build Status](https://travis-ci.org/job/rpki-vrp-checker.svg?branch=master)](https://travis-ci.org/job/rpki-vrp-checker)
 [![Requirements Status](https://requires.io/github/job/rpki-vrp-checker/requirements.svg?branch=master)](https://requires.io/github/job/rpki-vrp-checker/requirements/?branch=master)
 [![Coverage Status](https://coveralls.io/repos/github/job/rpki-vrp-checker/badge.svg?branch=master)](https://coveralls.io/github/job/rpki-vrp-checker?branch=master)
 
